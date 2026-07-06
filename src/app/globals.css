@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  @apply bg-base text-bone antialiased;
+}
+
+.container-x {
+  @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+}
+
+.eyebrow {
+  @apply text-[11px] uppercase tracking-cinematic text-boneDim;
+}
+
+.btn-primary {
+  @apply relative inline-flex items-center justify-center overflow-hidden rounded-none border border-bone bg-bone px-8 py-4 text-[12px] font-medium uppercase tracking-[0.2em] text-base transition-colors duration-500 ease-cinematic hover:bg-transparent hover:text-bone disabled:cursor-not-allowed disabled:opacity-40;
+}
+
+.btn-ghost {
+  @apply relative inline-flex items-center justify-center overflow-hidden rounded-none border border-line bg-transparent px-8 py-4 text-[12px] font-medium uppercase tracking-[0.2em] text-bone transition-all duration-500 ease-cinematic hover:border-bone;
+}
+
+.link-underline {
+  @apply relative;
+}
+
+.link-underline::after {
+  @apply absolute bottom-0 left-0 h-px w-0 bg-bone transition-all duration-500 ease-cinematic content-[''];
+}
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.55));
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2%, -2%);
+  }
+}
+
+.animate-grain {
+  animation: grain 8s steps(10) infinite;
+}
